@@ -21,7 +21,7 @@ class ParkingGarage():
                 self.parkingspaces.remove(spaceselect)
             if spaceselect not in self.usedspaces:
                 self.usedspaces.append(spaceselect)
-            self.ticketstatus[spaceselect] = unpaid
+            self.ticketstatus[spaceselect] == unpaid
         elif confirm.lower() == "no":
             print(f"Have a nice day!")
         else:
@@ -32,11 +32,11 @@ class ParkingGarage():
         payforspace = input("From the previous list what parking spot are you paying for? ")
         if payforspace in self.usedspaces:
             payment = input("Please enter 'Pay' to submit payment. ")
-            if payment.lower() = 'pay':
+            if payment.lower() == 'pay':
                 self.usedspaces.remove(payforspace)
                 self.tickets += 1
                 self.parkingspaces.append(payforspace)
-                self.ticketstatus[payforspace] = paid
+                self.ticketstatus[payforspace] == paid
                 print(f"Thank you for your payment!")
         if payforspace not in self.usedspace:
             print(f"Error, please try again.")
@@ -45,15 +45,15 @@ class ParkingGarage():
         print(self.usedspaces)
         spacenum = input("What was your parking space number? ")
         if spacenum in self.ticketstatus:
-            if ticketstatus.get(spacenum) = paid:
+            if ticketstatus.get(spacenum) == paid:
                 print(f"Thank you and have a nice day!")
-            if ticketstatus.get(spacenum) = unpaid:
+            if ticketstatus.get(spacenum) == unpaid:
                 payment = input("Please enter 'Pay' to submit payment. ")
-                if payment.lower() = 'pay':
+                if payment.lower() == 'pay':
                     self.usedspaces.remove(spacenum)
                     self.tickets += 1
                     self.parkingspaces.append(spacenum)
-                    self.ticketstatus[spacenum] = paid
+                    self.ticketstatus[spacenum] == paid
                     print(f"Thank you for your payment and have a nice day!")
                 else:
                     print(f"Error, please try again.")
@@ -62,9 +62,23 @@ class ParkingGarage():
 
         
         
-xcar = ParkingGarage(10, [1,2,3,4,5,6,7,8,9,10], {})
+tesla = ParkingGarage(10, [1,2,3,4,5,6,7,8,9,10], [], {})
 
-xcar.takeTicket()
+def run():
+    print("welcome to the parking garage!")
+
+    while True:     
+        answer = input("would you like to park pay or leave? ")
+
+        if response.lower()=="park":
+            tesla.takeTicket()
+        elif response.lower()=="pay":
+            tesla.payForParking()
+        elif response.lower()=="leave":
+            tesla.leaveGarage()
+        else: 
+            print ("Error please try again!")
+
             
 
 
