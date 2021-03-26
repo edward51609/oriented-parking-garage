@@ -21,7 +21,7 @@ class ParkingGarage():
                 self.parkingspaces.remove(spaceselect)
             if spaceselect not in self.usedspaces:
                 self.usedspaces.append(spaceselect)
-            self.ticketstatus[spaceselect] = False
+            self.ticketstatus[spaceselect] = unpaid
         elif confirm.lower() == "no":
             print(f"Have a nice day!")
         else:
@@ -36,15 +36,35 @@ class ParkingGarage():
                 self.usedspaces.remove(payforspace)
                 self.tickets += 1
                 self.parkingspaces.append(payforspace)
-                self.ticketstatus[payforspace] = True
+                self.ticketstatus[payforspace] = paid
                 print(f"Thank you for your payment!")
         if payforspace not in self.usedspace:
             print(f"Error, please try again.")
 
-    def leavegarage(self):
+    def leaveGarage(self):
+        print(self.usedspaces)
+        spacenum = input("What was your parking space number? ")
+        if spacenum in self.ticketstatus:
+            if ticketstatus.get(spacenum) = paid:
+                print(f"Thank you and have a nice day!")
+            if ticketstatus.get(spacenum) = unpaid:
+                payment = input("Please enter 'Pay' to submit payment. ")
+                if payment.lower() = 'pay':
+                    self.usedspaces.remove(spacenum)
+                    self.tickets += 1
+                    self.parkingspaces.append(spacenum)
+                    self.ticketstatus[spacenum] = paid
+                    print(f"Thank you for your payment and have a nice day!")
+                else:
+                    print(f"Error, please try again.")
+        else:
+            print(f"Error, please try again.")
+
         
         
 xcar = ParkingGarage(10, [1,2,3,4,5,6,7,8,9,10], {})
 
 xcar.takeTicket()
             
+
+
