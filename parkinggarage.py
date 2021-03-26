@@ -31,7 +31,18 @@ class ParkingGarage():
         print(self.usedspaces)
         payforspace = input("From the previous list what parking spot are you paying for? ")
         if payforspace in self.usedspaces:
-            self.usedspaces.remove(payforspace)
+            payment = input("Please enter 'Pay' to submit payment. ")
+            if payment.lower() = 'pay':
+                self.usedspaces.remove(payforspace)
+                self.tickets += 1
+                self.parkingspaces.append(payforspace)
+                self.ticketstatus[payforspace] = True
+                print(f"Thank you for your payment!")
+        if payforspace not in self.usedspace:
+            print(f"Error, please try again.")
+
+    def leavegarage(self):
+        
         
 xcar = ParkingGarage(10, [1,2,3,4,5,6,7,8,9,10], {})
 
