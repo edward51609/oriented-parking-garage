@@ -21,7 +21,7 @@ class ParkingGarage():
                 self.parkingspaces.remove(spaceselect)
             if spaceselect not in self.usedspaces:
                 self.usedspaces.append(spaceselect)
-            self.ticketstatus[spaceselect] == unpaid
+            self.ticketstatus[spaceselect] = 'unpaid'
         elif confirm.lower() == "no":
             print(f"Have a nice day!")
         else:
@@ -36,24 +36,24 @@ class ParkingGarage():
                 self.usedspaces.remove(payforspace)
                 self.tickets += 1
                 self.parkingspaces.append(payforspace)
-                self.ticketstatus[payforspace] == paid
+                self.ticketstatus[payforspace] = 'paid'
                 print(f"Thank you for your payment!")
-        if payforspace not in self.usedspace:
+        elif payforspace not in self.usedspaces:
             print(f"Error, please try again.")
 
     def leaveGarage(self):
         print(self.usedspaces)
         spacenum = input("What was your parking space number? ")
         if spacenum in self.ticketstatus:
-            if ticketstatus.get(spacenum) == paid:
+            if self.ticketstatus[spacenum] == 'paid':
                 print(f"Thank you and have a nice day!")
-            if ticketstatus.get(spacenum) == unpaid:
+            if self.ticketstatus[spacenum] == 'unpaid':
                 payment = input("Please enter 'Pay' to submit payment. ")
                 if payment.lower() == 'pay':
                     self.usedspaces.remove(spacenum)
                     self.tickets += 1
                     self.parkingspaces.append(spacenum)
-                    self.ticketstatus[spacenum] == paid
+                    self.ticketstatus[spacenum] = 'paid'
                     print(f"Thank you for your payment and have a nice day!")
                 else:
                     print(f"Error, please try again.")
@@ -62,7 +62,7 @@ class ParkingGarage():
 
         
         
-tesla = ParkingGarage(10, [1,2,3,4,5,6,7,8,9,10], [], {})
+tesla = ParkingGarage(10, ['1','2','3','4','5','6','7','8','9','10'], [], {})
 
 def run():
     print("welcome to the parking garage!")
@@ -70,15 +70,14 @@ def run():
     while True:     
         answer = input("would you like to park pay or leave? ")
 
-        if response.lower()=="park":
+        if answer.lower() == "park":
             tesla.takeTicket()
-        elif response.lower()=="pay":
+        elif answer.lower() == "pay":
             tesla.payForParking()
-        elif response.lower()=="leave":
+        elif answer.lower() == "leave":
             tesla.leaveGarage()
         else: 
             print ("Error please try again!")
-
             
-
+run()
 
