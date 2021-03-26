@@ -5,9 +5,10 @@ class ParkingGarage():
         - Parking space count as an integer
         - Dictionary that states currentTicket status
     """
-    def __init__(self,tickets,parkingspaces,ticketstatus):
+    def __init__(self,tickets,parkingspaces,usedspaces,ticketstatus):
         self.tickets = tickets
         self.parkingspaces = parkingspaces
+        self.usedspaces = usedspaces
         self.ticketstatus = ticketstatus
 
     def takeTicket(self):
@@ -18,6 +19,8 @@ class ParkingGarage():
             spaceselect = input("Please select a parking space from the previous list: ")
             if spaceselect in self.parkingspaces:
                 self.parkingspaces.remove(spaceselect)
+            if spaceselect not in self.usedspaces:
+                self.usedspaces.append(spaceselect)
             self.ticketstatus[spaceselect] = False
         elif confirm.lower() == "no":
             print(f"Have a nice day!")
@@ -25,8 +28,12 @@ class ParkingGarage():
             print(f"Please try again.")
 
     def payForParking(self):
+        print(self.usedspaces)
+        payforspace = input("From the previous list what parking spot are you paying for? ")
+        if payforspace in self.usedspaces:
+            self.usedspaces.remove(payforspace)
         
-xcar = ParkingGarage(10, [1,2,3,4,5,6,7,8,9.10], {})
+xcar = ParkingGarage(10, [1,2,3,4,5,6,7,8,9,10], {})
 
 xcar.takeTicket()
             
