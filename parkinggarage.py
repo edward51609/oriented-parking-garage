@@ -14,10 +14,10 @@ class ParkingGarage():
         confirm = input("Are you sure you would like to take a ticket? (Yes/No) ")
         if confirm.lower() == "yes":
             self.tickets -= 1
-            print(parkingspaces)
+            print(self.parkingspaces)
             spaceselect = input("Please select a parking space from the previous list: ")
-            if spaceselect in parkingpsaces:
-                parkingspaces.remove(spaceselect)
+            if spaceselect in self.parkingspaces:
+                self.parkingspaces.remove(spaceselect)
             self.ticketstatus[spaceselect] = False
         elif confirm.lower() == "no":
             print(f"Have a nice day!")
@@ -26,7 +26,7 @@ class ParkingGarage():
 
     def payForParking(self):
         
-xcar = ParkingGarage(10, [1,2,3,4,5,6,7,8.9.10], {})
+xcar = ParkingGarage(10, [1,2,3,4,5,6,7,8,9.10], {})
 
 xcar.takeTicket()
             
