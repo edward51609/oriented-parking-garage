@@ -1,74 +1,32 @@
-def greeting(name):
-    print ('test ' + name.title() + '!')
+class ParkingGarage():
+    """
+        Attributes for the class:
+        - Ticket count as an integer
+        - Parking space count as an integer
+        - Dictionary that states currentTicket status
+    """
+    def __init__(self,tickets,parkingspaces,ticketstatus):
+        self.tickets = tickets
+        self.parkingspaces = parkingspaces
+        self.ticketstatus = ticketstatus
 
-def greeting_2(name):
-    print('hello {} !' .format(name.title()))
-    print(f'hello again {name.title()} !')
+    def takeTicket(self):
+        confirm = input("Are you sure you would like to take a ticket? (Yes/No) ")
+        if confirm.lower() == "yes":
+            self.tickets -= 1
+            print(parkingspaces)
+            spaceselect = input("Please select a parking space from the previous list: ")
+            if spaceselect in parkingpsaces:
+                parkingspaces.remove(spaceselect)
+            self.ticketstatus[spaceselect] = False
+        elif confirm.lower() == "no":
+            print(f"Have a nice day!")
+        else:
+            print(f"Please try again.")
 
-greeting_2('hello')
+    def payForParking(self):
+        
+xcar = ParkingGarage(10, [1,2,3,4,5,6,7,8.9.10], {})
 
-
-def odd_numbers2():
-    numbers = list(range(0, 101))
-    for number in numbers:
-        if number % 2 != 0:
-            print(number)
-
-# odd_numbers()
-
-def max_num_in_list(a_list):
-    max_num = max (a_list)
-    return max_num
-
-test = max_num_in_list([2,3,5,8,9])
-print(max_num_in_list([2,3,5,8,9]))
-
-def is_leap_year(a_year):
-    if a_year % 4 == 0 and a_year % 100 != 0:
-        print(f'{a_year} is a leap year')
-    elif a_year % 400 == 0:
-        print(f'{a_year} is a leap year')
-    else:
-        a_year = False
-        print(f'{a_year}')
-
-
-# Question 4 1.b solution
-
-"""
-    TRUTH TREE
-    AND
-    T & T == T 
-    T & F == F
-    F & F == F
-    OR
-    T || F == T
-    F || T == T
-    F || F == F
-"""
-
-def is_leap(a_year):
-    if a_year % 4 == 0 and (a_year % 400 == 0 or a_year % 100 != 0):
-        print(True)
-    else:
-        print(False)
-
-is_leap_year(2019)
-
-def is_consecutive(a_list):
-    i = 0
-    status = True
-    while i < len(a_list) - 1:
-       if a_list[i] + 1 == a_list[i + 1]:
-           i += 1
-       else:
-            status = False
-            break
-    print(status)
-
-is_consecutive([1,2,3,4,5])
-
-def welcome(marvel_character):
-    print(f'welcome to {marvel_character} vision')
-
-welcome('wanda')
+xcar.takeTicket()
+            
