@@ -1,3 +1,4 @@
+from IPython.display import clear_output
 class ParkingGarage():
     """
         Attributes for the class:
@@ -63,7 +64,7 @@ class ParkingGarage():
         else:
             print(f"Error, please try again.")
             
-tesla = ParkingGarage(3, ['1','2','3'], [], {})
+tesla = ParkingGarage(10, ['1','2','3','4','5','6','7','8','9','10'], [], {})
 
 def run():
     print("Welcome to the parking garage!")
@@ -72,10 +73,13 @@ def run():
         answer = input("Would you like to park, pay, or leave? ")
 
         if answer.lower() == "park":
+            clear_output()
             tesla.takeTicket()
         elif answer.lower() == "pay":
+            clear_output()
             tesla.payForParking()
         elif answer.lower() == "leave":
+            clear_output()
             tesla.leaveGarage()
         else: 
             print ("Error please try again!")
